@@ -86,10 +86,11 @@ nav ul li a:hover {
 #about p {
   font-size: 18px;
   line-height: 42px;
+  letter-spacing: 2px;
 }
 #skills {
   width: 100vw;
-  padding: 0;
+  padding: 80px 0;
   margin: 0;
 }
 
@@ -112,6 +113,12 @@ nav ul li a:hover {
   border: 1px solid #ddd;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+}
+
+#skills .card p {
+  letter-spacing: 1px;
+  line-height: 1.5;
+  color: #333;
 }
 
 /* Rounded borders only on first and last card */
@@ -167,8 +174,7 @@ nav ul li a:hover {
 .hero {
   text-align: center;
   padding: 120px;
-  margin-top: 5%;
-  margin-bottom: 0;
+  margin-bottom: -5px;
   padding-bottom: 0;
   background: linear-gradient(-180deg, #ffffff, #f3f3f3);
   display: flex;
@@ -189,12 +195,11 @@ nav ul li a:hover {
 }
 
 .hero .image {
-  margin-top: 10%;
   width: 500px;
 }
 .profile-img {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
 }
 
 .slogan {
@@ -249,17 +254,17 @@ section {
 .section-description {
   text-align: center;
   font-size: 18px;
+  letter-spacing: 2px;
   color: #666;
-  max-width: 700px;
   margin: 0 auto 50px auto;
 }
 
 /* Projects Grid */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  max-width: 1100px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 100px;
+  max-width: 90%;
   margin: auto;
 }
 
@@ -301,9 +306,10 @@ section {
 }
 
 .project-link {
-  display: inline-block;
+  position: relative;
   padding: 10px 20px;
   font-size: 16px;
+  bottom: 0;
   color: #fff;
   background-color: #6c63ff;
   text-decoration: none;
@@ -322,82 +328,97 @@ section {
   }
 }
 
-#recent-work {
-  padding: 60px 0;
-  background: #f8f9fa;
+/* Section title */
+.section-title {
   text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 40px;
+  position: relative;
 }
 
+.section-title::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background-color: #3498db;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Grid layout for work cards */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* Work card styling */
 .work-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
+  background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  max-width: 900px;
-  margin: auto;
-  text-align: left;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.work-image {
-  width: 40%;
-  border-radius: 8px;
+.work-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.work-content {
-  padding: 20px;
-  flex: 1;
+/* Work icon */
+.work-icon img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
 }
 
-.work-content h3 {
-  font-size: 24px;
-  color: #333;
+/* Work card titles */
+.work-card h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
   margin-bottom: 10px;
 }
 
-.work-content p {
-  font-size: 16px;
-  color: #666;
+.work-card h4 {
+  font-size: 1.1rem;
+  color: #7f8c8d;
   margin-bottom: 15px;
+  font-weight: 400;
 }
 
-.work-highlights {
-  list-style: none;
-  padding: 0;
+/* Work card description */
+.work-card p {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: #666;
+  line-height: 1.6;
 }
 
-.work-highlights li {
-  font-size: 14px;
-  color: #444;
-  margin-bottom: 5px;
-  position: relative;
-  padding-left: 20px;
-}
-
-.work-highlights li::before {
-  content: "✔";
-  position: absolute;
-  left: 0;
-  color: #50c878;
-  font-weight: bold;
-}
-
+/* Responsive design */
 @media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
   .work-card {
-    flex-direction: column; /* Stack image and content */
-    text-align: center; /* Center text for better readability */
-    padding: 15px;
+    padding: 20px;
   }
 
-  .work-image {
-    width: 100%; /* Make image take full width */
-    margin-bottom: 15px; /* Add spacing between image and text */
+  .work-card h3 {
+    font-size: 1.3rem;
   }
 
-  .work-content {
-    padding: 10px;
+  .work-card h4 {
+    font-size: 1rem;
+  }
+
+  .work-card p {
+    font-size: 0.9rem;
   }
 }
 
@@ -507,7 +528,7 @@ footer {
 
   .hero {
     flex-direction: column;
-    padding: 100px 20px;
+    padding: 100px 20px 0px 20px; /* Adjust padding for mobile */
   }
 
   .hero-content {
