@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ajay1619.github.io/my-portfolio/sitemap.xml
