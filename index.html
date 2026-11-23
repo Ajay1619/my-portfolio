@@ -5560,7 +5560,13 @@
                 r.pointerType === "mouse" &&
                   (r.movementX || r.movementY) &&
                   Date.now() - g > 400 &&
-                  (e = !0);
+                  (e = !!r.target.closest(".pjc-c"));
+              }),
+              t.addEventListener("pointerout", function (r) {
+                r.pointerType === "mouse" &&
+                  e &&
+                  !(r.relatedTarget && r.relatedTarget.closest && r.relatedTarget.closest(".pjc-c")) &&
+                  (e = !1);
               }),
               t.addEventListener("pointerleave", function () {
                 ((e = !1), o());
